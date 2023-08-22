@@ -5,9 +5,9 @@ on:
       release_version:
         description: 'Release Version (yy.mm.dd)'
         required: true
-      commit_hash:
-        description: 'Commit Hash'
-        required: true
+     # commit_hash:
+     #   description: 'Commit Hash'
+     #   required: true
   push:
     tags:
       - '*.*.*'
