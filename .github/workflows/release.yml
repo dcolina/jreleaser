@@ -12,24 +12,38 @@ on:
     tags:
       - '*.*.*'
 
+env:
+  JAVA_VERSION: '19'
+  JAVA_DISTRO: 'amzn'
+
 jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
       - id: checkout
-        name: Checkout
+        name: 'Checkout'
         uses: actions/checkout@v3
+
+      - id: java-setup
+        name: 'Java Set up'
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DISTRO }}
+          
       - id: build
-        name: Build
+        name: 'Build'
         run: ./mvnw -B -ntp --file pom.xml -Pnative package -DskipTests
+        
       - name: 'Upload build artifact'
         uses: actions/upload-artifact@v3
         with:
           name: artifacts
           path: |
             target/distributions/*.zip
-            target/distributions/*.tar.gz 
+            target/distributions/*.tar.gz
+            
       - name: 'Release with JReleaser'
         env:
           JRELEASER_GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
