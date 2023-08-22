@@ -14,7 +14,7 @@ on:
 
 env:
   JAVA_VERSION: '19'
-  JAVA_DISTRO: 'amzn'
+  JAVA_DISTRO: 'corretto'
 
 jobs:
   release:
