@@ -1,0 +1,31 @@
+# Generated with JReleaser 1.7.0 at 2023-08-22T19:40:47.065932+02:00
+project:
+  name: jreleaser
+  version: 1.0.0
+  description: It's a PoC for JReleaser
+  longDescription: |
+    It's a PoC for JReleaser
+  authors:
+    - Dani
+  license: Apache-2.0
+  links:
+    homepage: https://github.com/dcolina/jreleaser/tree/main
+#  java:
+#    groupId: com.dotcms.jreleaser
+#    version: 19
+#  inceptionYear: 2023
+
+release:
+  github:
+    owner: dcolina
+    name: jreleaser
+    changelog:
+      formatted: ALWAYS
+      preset: conventional-commits
+      contributors:
+        format: '- {{contributorName}}'
+
+distributions:
+  app:
+    artifacts:
+      - path: target/{{distributionName}}-{{projectVersion}}.zip
