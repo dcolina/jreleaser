@@ -6,7 +6,7 @@ project:
   longDescription: |
     It's a PoC for JReleaser
   authors:
-    - Dani
+    - dcolina
   license: Apache-2.0
   links:
     homepage: https://github.com/dcolina/jreleaser/tree/main
